@@ -9,19 +9,64 @@
     <link rel="icon" type="image/png" href="public/favicon-32x32.png" sizes="32x32">
     <link rel="stylesheet" href="public/css/katex.min.css">
     <style type="text/css">
-        a:focus, button:focus{
+        a:focus,button:focus,div:focus{
             outline:0 !important;
         }
 
-        button::-moz-focus-inner,input::-moz-focus-inner {
+        button::-moz-focus-inner,input::-moz-focus-inner,div::-moz-focus-inner {
 	        padding:0;
 	        border:0
         }
 
-        .button-small button {
-            min-width: 40px !important;
-            width:40px;
-            border-radius:0;
+        .table {
+            width: 100%;
+            max-width: 100%;
+            margin-bottom: 20px;
+        }
+
+        .table-bordered {
+            border: 1px solid #ddd;
+        }
+
+        .table-bordered > thead > tr > th, 
+        .table-bordered > tbody > tr > th, 
+        .table-bordered > tfoot > tr > th, 
+        .table-bordered > thead > tr > td, 
+        .table-bordered > tbody > tr > td, 
+        .table-bordered > tfoot > tr > td {
+            border: 1px solid #ddd;
+        }
+
+        .table > thead > tr > th, 
+        .table > tbody > tr > th, 
+        .table > tfoot > tr > th, 
+        .table > thead > tr > td, 
+        .table > tbody > tr > td, 
+        .table > tfoot > tr > td {
+            padding: 8px;
+            line-height: 1.42857143;
+            vertical-align: top;
+            border-top: 1px solid #ddd;
+        }
+
+        /*水平翻转*/
+        .flipx{
+            -moz-transform:scaleX(-1);
+            -webkit-transform:scaleX(-1);
+            -o-transform:scaleX(-1);
+            transform:scaleX(-1);
+            /*IE*/
+            filter:FlipH;
+        }
+
+        /*垂直翻转*/
+        .flipy {
+            -moz-transform:scaleY(-1);
+            -webkit-transform:scaleY(-1);
+            -o-transform:scaleY(-1);
+            transform:scaleY(-1);
+            /*IE*/
+            filter:FlipV;
         }
 
         .tabs__slider {
@@ -58,10 +103,11 @@
         .resizable {
             position:relative;
             width:4px;
+            max-width:4px;
             margin-left:-2px;
             margin-right:-2px;
             cursor:col-resize;
-            flex:0 0 auto;
+            flex:0 0 4px;
             background:transparent;
             z-index:1000;
         }
@@ -73,9 +119,41 @@
         .list--group .list__tile {
             padding-left: 36px !important;
         }
+
+        .menu__content {
+            border-radius:0 !important;
+        }
+
+        .input-group__details {
+            display:none !important;
+        }
+
+        input::-webkit-input-placeholder, 
+        textarea::-webkit-input-placeholder { /* WebKit*/  
+            color:#999;  
+            font-size:14px;
+        }
+
+        input:-moz-placeholder, 
+        textarea:-moz-placeholder { /* Mozilla Firefox 4 to 18 */  
+            color:#999;  
+            font-size:14px;
+        }  
+        
+        input::-moz-placeholder,
+        textarea::-moz-placeholder { /* Mozilla Firefox 19+ */  
+            color:#999;
+            font-size:14px;
+        }  
+    
+        input:-ms-input-placeholder,
+        textarea:-ms-input-placeholder { /* IE 10+ */  
+            color:#999;
+            font-size:14px;
+        }  
     </style>
 </head>
-<body style="font-family:'Microsoft YaHei','微软雅黑','WenQuanYi Micro Hei',文泉驿微米黑,STHeiti,'Roboto',sans-serif;width:100%;height:100%;min-width:1008px;overflow:auto;overflow-y:hidden;">
+<body style="font-family:'WenQuanYi Micro Hei',文泉驿微米黑,STHeiti,'Roboto',sans-serif;width:100%;height:100%;min-width:1008px;overflow:auto;overflow-y:hidden;">
     <div id="app"></div>
     <script src="./dist/build.js"></script>
 </body>

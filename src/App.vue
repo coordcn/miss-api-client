@@ -17,12 +17,10 @@
 
 <script>
 import toolbar from './components/toolbar/toolbar'
-import menu from './components/menu/menu'
 
 export default {
     components: {
         "app-toolbar": toolbar,
-        "app-menu": menu
     }
 }
 </script>

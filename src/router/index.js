@@ -35,6 +35,7 @@ export default new Router({
     route('/equip', 'equip', ['content']),
     route('/stock', 'stock', ['content']),
     route('/report', 'report', ['content']),
+    route('/apps', 'apps', ['content']),
     route('/settings', 'settings', ['content']),
     route('/help', 'help', ['content']),
     { path: '*', redirect: '/task' }

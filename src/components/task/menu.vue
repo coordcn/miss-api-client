@@ -4,7 +4,7 @@
         <v-toolbar dark flat class="cyan toolbar-small">
             <v-toolbar-items style="margin:0;">
                 <v-btn flat class="toolbar-right-btn">新建任务</v-btn>
-                <v-btn flat class="toolbar-right-btn">已完成任务</v-btn>
+                <v-btn flat class="toolbar-right-btn">已完成</v-btn>
             </v-toolbar-items>
             <v-spacer></v-spacer>
             <v-toolbar-items>
@@ -56,87 +56,87 @@ export default {
     data () {
         return {
             id: '',
-                    items: [
-                        {
-                            id: '1',
-                            name: '钱烨（软件工程师）',
-                            avatar: '/public/avatar/1.jpg',
-                            deadline: '1天',
-                            title: '完成任务模块页面编码',
-                        },
-                        {
-                            id: '2',
-                            name: '范琴（测试工程师）',
-                            avatar: '/public/avatar/3.jpg',
-                            deadline: '2天',
-                            title: '任务模块页面测试及后台数据测试',
-                        },
-                        {
-                            id: '3',
-                            name: '宋海桥（质量工程师）',
-                            avatar: '/public/avatar/2.jpg',
-                            deadline: '3小时',
-                            title: '南车间表冷器检验',
-                        },
-                        {
-                            id: '4',
-                            name: '戴明德（项目经理）',
-                            avatar: '/public/avatar/1.jpg',
-                            deadline: '15天',
-                            title: '常州天马空调主机工程施工',
-                        },
-                        {
-                            id: '5',
-                            name: '秦丽娟（采购部经理）',
-                            avatar: '/public/avatar/5.jpg',
-                            deadline: '4天',
-                            title: '南京伏羲工程风机采购',
-                        },
-                        {
-                            id: '6',
-                            name: '钱波（财务部会计）',
-                            avatar: '/public/avatar/4.jpg',
-                            deadline: '16分钟',
-                            title: '财务月报表',
-                        },
-                        {
-                            id: '7',
-                            name: '钱烨（软件工程师）',
-                            avatar: '/public/avatar/1.jpg',
-                            deadline: '19天',
-                            title: '项目线上部署',
-                        },
-                        /*
-                        {
-                            id: '8',
-                            name: '钱烨（软件工程师）',
-                            avatar: '/public/avatar/1.jpg',
-                            deadline: '19天',
-                            title: '项目线上部署',
-                        },
-                        {
-                            id: '9',
-                            name: '钱烨（软件工程师）',
-                            avatar: '/public/avatar/1.jpg',
-                            deadline: '19天',
-                            title: '项目线上部署',
-                        },
-                        {
-                            id: '10',
-                            name: '钱烨（软件工程师）',
-                            avatar: '/public/avatar/1.jpg',
-                            deadline: '19天',
-                            title: '项目线上部署',
-                        },
-                        {
-                            id: '11',
-                            name: '钱烨（软件工程师）',
-                            avatar: '/public/avatar/1.jpg',
-                            deadline: '19天',
-                            title: '项目线上部署',
-                        },
-                        */
-                    ]
+            items: [
+                {
+                    id: '1',
+                    name: '钱烨（软件工程师）',
+                    avatar: '/public/avatar/1.jpg',
+                    deadline: '1天',
+                    title: '完成任务模块页面编码',
+                },
+                {
+                    id: '2',
+                    name: '范琴（测试工程师）',
+                    avatar: '/public/avatar/3.jpg',
+                    deadline: '2天',
+                    title: '任务模块页面测试及后台数据测试',
+                },
+                {
+                    id: '3',
+                    name: '宋海桥（质量工程师）',
+                    avatar: '/public/avatar/2.jpg',
+                    deadline: '3小时',
+                    title: '南车间表冷器检验',
+                },
+                {
+                    id: '4',
+                    name: '戴明德（项目经理）',
+                    avatar: '/public/avatar/1.jpg',
+                    deadline: '15天',
+                    title: '常州天马空调主机工程施工',
+                },
+                {
+                    id: '5',
+                    name: '秦丽娟（采购部经理）',
+                    avatar: '/public/avatar/5.jpg',
+                    deadline: '4天',
+                    title: '南京伏羲工程风机采购',
+                },
+                {
+                    id: '6',
+                    name: '钱波（财务部会计）',
+                    avatar: '/public/avatar/4.jpg',
+                    deadline: '16分钟',
+                    title: '财务月报表',
+                },
+                {
+                    id: '7',
+                    name: '钱烨（软件工程师）',
+                    avatar: '/public/avatar/1.jpg',
+                    deadline: '19天',
+                    title: '项目线上部署',
+                },
+                /*
+                {
+                    id: '8',
+                    name: '钱烨（软件工程师）',
+                    avatar: '/public/avatar/1.jpg',
+                    deadline: '19天',
+                    title: '项目线上部署',
+                },
+                {
+                    id: '9',
+                    name: '钱烨（软件工程师）',
+                    avatar: '/public/avatar/1.jpg',
+                    deadline: '19天',
+                    title: '项目线上部署',
+                },
+                {
+                    id: '10',
+                    name: '钱烨（软件工程师）',
+                    avatar: '/public/avatar/1.jpg',
+                    deadline: '19天',
+                    title: '项目线上部署',
+                },
+                {
+                    id: '11',
+                    name: '钱烨（软件工程师）',
+                    avatar: '/public/avatar/1.jpg',
+                    deadline: '19天',
+                    title: '项目线上部署',
+                },
+                */
+            ]
         }
     },
     methods: {
@@ -178,10 +178,6 @@ export default {
 
 .task-menu-search .input-group {
     padding:6px 10px 0px 16px;
-}
-
-.task-menu-search .input-group__details {
-    display:none;
 }
 
 .indent-20 {

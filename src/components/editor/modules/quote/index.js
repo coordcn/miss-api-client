@@ -1,31 +1,4 @@
-function findParent (node, filter, stopNode) {
-    if (!node) return null;
-    if (!filter || (typeof filter != 'function')) return null;
-
-    stopNode = stopNode || document.getElementsByTagName('body')
-
-    while (node) {
-        if (filter(node)) return node;
-        if (node === stopNode) return null;
-        node = node.parentNode
-    }
-
-    return null;
-}
-
-function findBlockquote (nodes) {
-    if (!nodes) return null;
-
-    let len = nodes.length;
-    for (let i = 0; i < len; i++) {
-        if (nodes[i].nodeName === 'BLOCKQUOTE') {
-            return nodes[i]
-        }
-    }
-
-    return null
-}
-
+import dom from '../../core/dom'
 
 export default {
     name: 'quote',
@@ -33,23 +6,25 @@ export default {
     handler (editor) {
         const range = editor.range;
         if (range) {
-        const stopNode = editor.$refs.content;
-        const root = range.commonAncestorContainer;
+            const content   = editor.$refs.content;
+            const root      = range.commonAncestorContainer;
+            const findQuote = dom.findParentBlockquote(root, content);
+            const hasQuote  = dom.hasBlockquote(range.cloneContents());
 
-        const find = findParent(root, function(node) {
-            return node.nodeName === 'BLOCKQUOTE';
-        }, stopNode);
+            if (findQuote || hasQuote) {
+                document.execCommand('outdent')
+            } else {
+                document.execCommand('indent');
+                let lastChild = content.lastChild;
 
-        const selectedNodes = range.cloneContents();
-        const findNode = findBlockquote(selectedNodes.childNodes);
+                if (dom.isBlockquote(lastChild)) {
+                    const p = document.createElement('p');
+                    p.innerHTML = dom.blank;
+                    content.appendChild(p);
+                }
+            }
 
-        if (find || findNode) {
-            document.execCommand('outdent')
-        } else {
-            document.execCommand('indent')
-        }
-
-        editor.range = null;
+            editor.range = null;
         }
     }
 }

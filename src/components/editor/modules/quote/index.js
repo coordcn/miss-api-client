@@ -6,12 +6,13 @@ export default {
     handler (editor) {
         const range = editor.range;
         if (range) {
-            const content   = editor.$refs.content;
-            const root      = range.commonAncestorContainer;
-            const findQuote = dom.findParentBlockquote(root, content);
-            const hasQuote  = dom.hasBlockquote(range.cloneContents());
+            const content       = editor.$refs.content;
+            const root          = range.commonAncestorContainer;
+            const findQuote     = dom.findParentBlockquote(root, content);
+            const childNodes    = range.cloneContents().childNodes;
+            const findNode      = dom.findNode(childNodes, dom.isBlockquote);
 
-            if (findQuote || hasQuote) {
+            if (findQuote || findNode) {
                 document.execCommand('outdent')
             } else {
                 document.execCommand('indent');

@@ -1,4 +1,4 @@
-function setSelectionRange(input, start, end) {
+function focus(input, start, end) {
     if (input.setSelectionRange) {  
         input.focus();  
         input.setSelectionRange(start, end);  
@@ -12,5 +12,5 @@ function setSelectionRange(input, start, end) {
 }
 
 export default {
-    setSelectionRange: setSelectionRange,
+    focus,
 }

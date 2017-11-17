@@ -199,9 +199,10 @@ export default {
         },
         activeModule(module){
             if (typeof module.handler === 'function') {
-                module.handler(this)
-                return
+                let ret = module.handler(this);
+                if (!ret) return;
             }
+
             if (module.hasDashboard) {
                 this.toggleDashboard(`dashboard-${module.name}`)
             }

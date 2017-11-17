@@ -2,7 +2,7 @@ import align from './align/index'
 import bold from './bold/index'
 import code from './code/index'
 import emoticon from './emoticon/index'
-import eraser from './eraser/index'
+//import eraser from './eraser/index'
 import fullscreen from './fullsrceen/index'
 import heading from './heading/index'
 import image from './image/index'
@@ -24,7 +24,7 @@ import video from './video/index'
 export default [
     undo,
     redo,
-    eraser,
+    //eraser,
     heading,
     bold,
     italic,

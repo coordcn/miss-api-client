@@ -24,6 +24,7 @@ const isTable       = isNodeNameBase("TABLE");
 const isAnchor      = isNodeNameBase("A");
 const isBr          = isNodeNameBase("BR");
 const isImg         = isNodeNameBase("IMG");
+const isSpan        = isNodeNameBase("SPAN");
 
 function isList(node) {
     return node && /^UL|^OL/.test(node.nodeName.toUpperCase());
@@ -33,7 +34,7 @@ function isTableCell(node) {
     return node && /^TD|^TH/.test(node.nodeName.toUpperCase());
 }
 
-function findParent (node, filter, stopNode) {
+function findParent(node, filter, stopNode) {
     if (!node) return null;
     if (!filter || (typeof filter != 'function')) return null;
 
@@ -60,16 +61,15 @@ const findParentTable       = findParentBase(isTable);
 const findParentTableCell   = findParentBase(isTableCell);
 const findParentList        = findParentBase(isList);
 const findParentImg         = findParentBase(isImg);
+const findParentSpan        = findParentBase(isSpan);
+const findParentAnchor      = findParentBase(isAnchor);
 
-function hasBlockquote (node) {
-    if (!node) return null;
-
-    let nodes = node.childNodes;
+function findNode(nodes, filter) {
     if (!nodes) return null;
-    let len = nodes.length;
 
+    let len = nodes.length;
     for (let i = 0; i < len; i++) {
-        if (isBlockquote(nodes[i])) {
+        if (filter(nodes[i])) {
             return nodes[i]
         }
     }
@@ -102,7 +102,9 @@ export default {
     findParentTableCell,
     findParentImg,
     findParentList,
-    hasBlockquote,
+    findParentSpan,
+    findParentAnchor,
+    findNode,
     create,
     createText,
 }

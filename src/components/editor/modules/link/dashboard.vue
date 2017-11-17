@@ -12,6 +12,21 @@
         ></v-text-field>
         <v-btn 
             flat
+            class="editor-btn-sm"
+            @click="click('link', $event)"
+        >
+            {{ $parent.tooltip.save }}
+        </v-btn>
+        <v-btn
+            flat 
+            class="editor-btn-sm"
+            @click="click('unlink', $event)"
+        >
+            {{ $parent.tooltip.unlink }}
+        </v-btn>
+        <!--
+        <v-btn 
+            flat
             :title="$parent.tooltip.save"
             @click="click('link', $event)"
         >
@@ -24,6 +39,7 @@
         >
             <v-icon class="editor-icon">close</v-icon>
         </v-btn>
+        -->
     </v-toolbar-items>
 </v-toolbar>
 </template>

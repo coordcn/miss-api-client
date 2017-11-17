@@ -46,7 +46,10 @@
         内容主要是一帮大老爷们的照片，我就是随便找的，并没有什么特殊癖好，你要事喜欢，可以换成风景图片什么的，我觉得风景图片可能要好点，不过风景图片可能大大小小的，这个图片估计也会有这个问题，大大小小不容易排版，这个是我们需要改进的地方，之所以说这么多废话，就是想凑点字数出来，看看多排的排版效果，其实说的都是废话。
                                 </div>
                                 <div>
-                                    <miss-editor :hiddenModules="{italic:true,underline:true,strikethrough:true}"></miss-editor>
+                                    <miss-editor 
+                                        language="en-us" 
+                                        :hiddenModules="{italic:true,underline:true,strikethrough:true}"
+                                    ></miss-editor>
                                 </div>
                             </div>
                         </v-layout>

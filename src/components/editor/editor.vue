@@ -210,6 +210,9 @@ export default {
     },
     created(){
         this.tooltip = i18n[this.language]
+        if (!this.tooltip) {
+            this.tooltip = i18n['zh-cn'];
+        }
         
         let ms = []
         this.modules.forEach((module) => {

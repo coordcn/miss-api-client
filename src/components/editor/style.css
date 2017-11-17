@@ -35,6 +35,10 @@
     border-radius:0;
 }
 
+.editor-toolbar .btn__content {
+    padding:0;
+}
+
 .editor-fullscreen {
     position: fixed !important;
     top: 0 !important;
@@ -80,12 +84,21 @@
 
 .editor-btn-sm {
     font-size:15px !important;
-    min-width:88px !important;
     width:auto !important;
     color:#666 !important;
+    padding:0 8px;
+}
+
+.editor-toolbar-label {
+    font-size:15px;
+    color:#666;
+    padding:0 12px;
+
+    text-align: center;
+    line-height: 36px;
 }
 
 .editor-icon {
-    font-size:20px !important;
+    font-size:24px !important;
     color:#666 !important;
 }

@@ -4,6 +4,7 @@
         <v-menu
             offset-y
             v-modle="menu"
+            z-index="256"
         >
             <v-btn flat class="toolbar-apps-button" slot="activator">
                 <v-icon large>apps</v-icon>

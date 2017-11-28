@@ -13,12 +13,14 @@
         <v-btn 
             flat
             class="editor-btn-sm"
+            :title="$parent.tooltip.linkCreate"
             @click="click('link', $event)"
         >
             {{ $parent.tooltip.save }}
         </v-btn>
         <v-btn
             flat 
+            :title="$parent.tooltip.unlink"
             class="editor-btn-sm"
             @click="click('unlink', $event)"
         >

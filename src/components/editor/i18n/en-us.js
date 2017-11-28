@@ -15,6 +15,7 @@ export default {
     italic: 'Italic',
 
     link: 'Link',
+    linkCreate: 'Create link',
     linkPlaceHolder: 'Input url please',
     unlink: 'Unlink',
 
@@ -27,15 +28,14 @@ export default {
     strikethrough: 'Strikethrough',
 
     table: 'Table',
+    tableAdd: 'Add table',
     tableAddRowBelow: 'Add row below',
     tableAddRowAbove: 'Add row above',
     tableAddColumnLeft: 'Add column left',
     tableAddColumnRight: 'Add column right',
-    tableRemoveRow: 'Remove row',
-    tableRemoveColumn: 'Remove column',
-    tableRemove: 'Remove table',
-    tableWithHeader: 'With Header',
-    tableWithoutHeader: 'Without Header',
+    tableDeleteRow: 'Delete row',
+    tableDeleteColumn: 'Delete column',
+    tableDelete: 'Delete table',
 
     underline: 'Underline',
     undo: 'Undo',

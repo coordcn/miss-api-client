@@ -1,5 +1,5 @@
 <template>
-<div class="editor" :class="{'editor-fullscreen':fullscreen}" style="z-index:1000">
+<div class="editor" :class="{'editor-fullscreen':fullscreen}" style="z-index:64">
     <div style="border:1px solid rgba(0,0,0,0.12);">
         <div style="position:relative;">
             <v-toolbar light flat class="editor-toolbar" style="border-bottom:1px solid rgba(0,0,0,0.12);">

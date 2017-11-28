@@ -23,17 +23,11 @@
         ></v-text-field>
         <v-btn 
             flat
+            :title="$parent.tooltip.tableAdd"
             class="editor-btn-sm"
             @click="click('link', $event)"
         >
-            {{ $parent.tooltip.tableWithHeader }}
-        </v-btn>
-        <v-btn 
-            flat
-            class="editor-btn-sm"
-            @click="click('link', $event)"
-        >
-            {{ $parent.tooltip.tableWithoutHeader }}
+            {{ $parent.tooltip.save }}
         </v-btn>
     </v-toolbar-items>
     <v-toolbar-items style="margin-left:16px;">
@@ -61,27 +55,27 @@
         <v-btn
             flat 
             :title="$parent.tooltip.tableAddColumnRight"
-            @click="click('unlink', $event)"
+            @click="click('unlin', $event)"
         >
             <v-icon class="editor-icon">border_left</v-icon>
         </v-btn>
         <v-btn
             flat 
-            :title="$parent.tooltip.tableRemoveRow"
+            :title="$parent.tooltip.tableDeleteRow"
             @click="click('unlink', $event)"
         >
             <v-icon class="editor-icon">border_horizontal</v-icon>
         </v-btn>
         <v-btn
             flat 
-            :title="$parent.tooltip.tableRemoveColumn"
+            :title="$parent.tooltip.tableDeleteColumn"
             @click="click('unlink', $event)"
         >
             <v-icon class="editor-icon">border_vertical</v-icon>
         </v-btn>
         <v-btn
             flat 
-            :title="$parent.tooltip.tableRemove"
+            :title="$parent.tooltip.tableDelete"
             @click="click('unlink', $event)"
         >
             <v-icon class="editor-icon">delete_forever</v-icon>
@@ -91,7 +85,7 @@
 </template>
 
 <script>
-import command from './command'
+import command from '../cmd.js'
 
 export default {
     data () {
@@ -100,9 +94,27 @@ export default {
             column: '2',
         }
     },
+    activated () {
+        let editor = this.$parent;
+        const range     = editor.range;
+        const content   = editor.$refs.content;
+        const root      = range.commonAncestorContainer;
+        const table     = dom.findParentTable(root, content);
+
+        if (table) {
+            this.url = findAnchor.getAttribute('href');
+        } else {
+            const childNodes    = range.cloneContents().childNodes;
+            const findNode      = dom.findNode(childNodes, dom.isAnchor);
+            if (findNode) {
+                this.url = findNode.getAttribute('href');
+            } else {
+                this.url = '';
+            }
+        }
+    },
     methods: {
         click (cmd, event) {
-            let url = this.url
             this.$parent.execCommand(function() {
                 let fn = command[cmd]
                 fn(url)

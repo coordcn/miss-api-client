@@ -4,10 +4,28 @@
         <v-toolbar dark flat class="cyan toolbar-small">
             <v-toolbar-items style="margin:0;">
                 <v-btn flat class="toolbar-right-btn">新建任务</v-btn>
-            </v-toolbar-items>
-            <v-spacer></v-spacer>
-            <v-toolbar-items>
-                <v-btn flat class="toolbar-right-btn">已完成</v-btn>
+                <v-menu
+                    offset-y
+                    z-index="128"
+                >
+                    <v-btn 
+                        flat 
+                        class="toolbar-right-btn" 
+                        slot="activator"
+                        style="width:180px;"
+                    >
+                        <span> {{ taskClass }} </span>
+                        <v-icon dark>arrow_drop_down</v-icon>
+                    </v-btn>
+                    <v-list dense>
+                        <v-list-tile v-for="item in classes" :key="item" @click="">
+                            <v-list-tile-title 
+                                v-text="item" 
+                                style="color:#333;font-size:16px;"
+                            ></v-list-tile-title>
+                        </v-list-tile>
+                    </v-list>
+                </v-menu>
             </v-toolbar-items>
         </v-toolbar>
     </v-flex>
@@ -35,10 +53,16 @@
                             :id="`task--${item.id}`"
                         >
                             <v-list-tile-content>
-                                <v-list-tile-title v-html="item.title" style="color:#333;font-size:16px;"></v-list-tile-title>
+                                <v-list-tile-title 
+                                    v-html="item.title" 
+                                    style="color:#333;font-size:16px;"
+                                ></v-list-tile-title>
                             </v-list-tile-content>
                             <v-list-tile-action>
-                                <v-list-tile-action-text class="menu_title" style="color:#d93d5e;">
+                                <v-list-tile-action-text 
+                                    class="menu_title" 
+                                    style="color:#d93d5e;"
+                                >
                                     {{ item.deadline }}
                                 </v-list-tile-action-text>
                             </v-list-tile-action>
@@ -56,6 +80,16 @@ export default {
     data () {
         return {
             id: '',
+            taskClass: '未完成的',
+            classes: [
+                '未完成的',
+                '已完成的',
+                '我发出的',
+                '我执行的',
+                '抄送我的',
+                '暂停的',
+                '废弃的',
+            ],
             items: [
                 {
                     id: '1',

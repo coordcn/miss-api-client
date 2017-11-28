@@ -3,7 +3,7 @@
     <v-flex d-flex id="task-menu" class="task-menu" style="width:350px;">
         <task-menu></task-menu>
     </v-flex>
-    <v-flex class="resizable" v-resizable="{id:'task-menu',minWidth:300,maxWidth:600}"></v-flex>
+    <v-flex class="resizable" v-resizable="{id:'task-menu',minWidth:300,maxWidth:620}"></v-flex>
     <v-flex d-flex class="task-content">
         <router-view></router-view>
     </v-flex>

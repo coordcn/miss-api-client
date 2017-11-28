@@ -10,7 +10,7 @@
                 >
                     <v-btn 
                         flat 
-                        class="toolbar-right-btn" 
+                        class="toolbar-right-btn menu-btn" 
                         slot="activator"
                         style="width:180px;"
                     >

@@ -3,14 +3,14 @@
     <v-layout row wrap>
         <v-flex class="toolbar-app" v-for="item in items" :key="item.icon">
             <router-link :to="item.href" class="toolbar-app-link">
-            <div style="margin:10px 0 4px 0">
-                <v-icon style="font-size:48px;color:#fff;">
-                    {{ item.icon }}
-                </v-icon>
-            </div>
-            <div style="font-weight:600;text-align:center;color:#fff;">
-                {{ item.title }}
-            </div>
+                <div style="margin:10px 0 4px 0">
+                    <v-icon style="font-size:48px;color:#fff;">
+                        {{ item.icon }}
+                    </v-icon>
+                </div>
+                <div style="font-weight:600;text-align:center;color:#fff;">
+                    {{ item.title }}
+                </div>
             </router-link>
         </v-flex>
     </v-layout>
@@ -26,7 +26,7 @@ export default {
                     title: '任务',
                     href: '/task',
                     icon: 'layers',
-                    action: 99
+                    badge: 99
                 },
                 { 
                     title: '项目',
@@ -52,7 +52,7 @@ export default {
                     title: '供应商',
                     href: '/supplier',
                     icon: 'unarchive', 
-                    action: 8 
+                    badge: 8 
                 },
                 { 
                     title: '设备',
@@ -63,7 +63,7 @@ export default {
                     title: '库存',
                     href: '/stock',
                     icon: 'dns',
-                    action: 12
+                    badge: 12
                 },
                 { 
                     title: '报表',

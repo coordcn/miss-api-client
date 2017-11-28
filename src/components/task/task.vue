@@ -23,9 +23,11 @@ export default {
 <style lang="css">
 .task-menu {
     flex:0 0 auto;
+    height:100%;
 }
 
 .task-content {
     flex:1 1 auto;
+    height:100%;
 }
 </style>

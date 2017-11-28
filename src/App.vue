@@ -1,5 +1,5 @@
 <template>
-<v-app style="background-color:#fff;width:100%;height:100%;overflow:hidden;">
+<v-app style="background-color:#fff;width:100%;height:100vh; overflow:hidden;">
     <v-layout column>
         <v-flex class="app-toolbar">
             <app-toolbar></app-toolbar>

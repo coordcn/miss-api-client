@@ -4,10 +4,10 @@
         <v-toolbar dark flat class="cyan toolbar-small">
             <v-toolbar-items style="margin:0;">
                 <v-btn flat class="toolbar-right-btn">新建任务</v-btn>
-                <v-btn flat class="toolbar-right-btn">已完成</v-btn>
             </v-toolbar-items>
             <v-spacer></v-spacer>
             <v-toolbar-items>
+                <v-btn flat class="toolbar-right-btn">已完成</v-btn>
             </v-toolbar-items>
         </v-toolbar>
     </v-flex>
@@ -25,7 +25,7 @@
                     v-click-outside="cancelThis"
                 ></v-text-field>
             </v-flex>
-            <v-flex class="task-menu-list" style="overflow-y:auto;">
+            <v-flex class="task-menu-list" style="overflow-y:auto;height:100%">
                 <v-list dense>
                     <template v-for="(item, index) in items">
                         <v-list-tile
@@ -106,7 +106,6 @@ export default {
                     deadline: '19天',
                     title: '项目线上部署',
                 },
-                /*
                 {
                     id: '8',
                     name: '钱烨（软件工程师）',
@@ -135,7 +134,27 @@ export default {
                     deadline: '19天',
                     title: '项目线上部署',
                 },
-                */
+                {
+                    id: '11',
+                    name: '钱烨（软件工程师）',
+                    avatar: '/public/avatar/1.jpg',
+                    deadline: '19天',
+                    title: '项目线上部署',
+                },
+                {
+                    id: '11',
+                    name: '钱烨（软件工程师）',
+                    avatar: '/public/avatar/1.jpg',
+                    deadline: '19天',
+                    title: '项目线上部署',
+                },
+                {
+                    id: '11',
+                    name: '钱烨（软件工程师）',
+                    avatar: '/public/avatar/1.jpg',
+                    deadline: '19天',
+                    title: '项目线上部署',
+                },
             ]
         }
     },

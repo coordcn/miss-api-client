@@ -3,7 +3,7 @@
 }
 
 .editor-toolbar .toolbar__content {
-    height:36px;
+    height:36px !important;
 }
 
 .editor-emoticon-item {

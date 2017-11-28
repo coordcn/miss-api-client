@@ -1,6 +1,6 @@
 <template>
 <v-toolbar dark flat dense style="background-color:#3c8dbc;background-image:url(public/bg.jpg);">
-    <v-toolbar-items style="margin-left:0;">
+    <v-toolbar-items style="margin:0;">
         <v-menu
             offset-y
             v-modle="menu"
@@ -14,7 +14,19 @@
     </v-toolbar-items>
     <v-toolbar-title style="font-weight:600;font-size:18px;color:#fff;">Miss API</v-toolbar-title>
     <v-spacer></v-spacer>
-    <v-toolbar-items>
+    <v-toolbar-items style="margin:0;">
+        <template v-for="(item, index) in items">
+            <router-link :to="item.href">
+                <v-btn flat class="toolbar-right-btn link-btn badge-btn">
+                    <v-badge color="orange">
+                    <span slot="badge" v-if="item.badge && (typeof item.badge === 'number') && (item.badge > 0)">
+                        {{ item.badge < 100 ? item.badge : 99 }}
+                    </span>
+                    <span> {{ item.title }} </span>
+                    </v-badge>
+                </v-btn>
+            </router-link>
+        </template>
         <v-btn flat class="toolbar-right-btn">注册</v-btn>
         <v-btn flat class="toolbar-right-btn">登录</v-btn>
     </v-toolbar-items>
@@ -30,7 +42,27 @@ export default {
     },   
     data: () => ({
         menu: false,
-    })
+        items: [
+            {
+                title: '消息',
+                href: '/message',
+            },
+            {
+                title: '任务',
+                href: '/task',
+                badge: 128
+            },
+            {
+                title: '会议',
+                href: '/meeting',
+                badge: 2
+            },
+            {
+                title: '日程',
+                href: '/schedule',
+            },
+        ]
+    }),
 }
 </script>
 

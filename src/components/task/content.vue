@@ -1,6 +1,6 @@
 <template>
 <v-tabs dark v-model="active" :scrollable="false" style="height:100%">
-    <v-tabs-bar class="cyan" style="height:42px;">
+    <v-tabs-bar class="cyan" dark style="height:42px;">
         <v-tabs-item
             v-for="item in items"
             :key="item.key"
@@ -11,7 +11,7 @@
             {{ item.title }}
         </v-tabs-item>
     </v-tabs-bar>
-    <v-tabs-items style="height:100%;">
+    <v-tabs-items style="height:calc(100% - 42px);">
         <v-tabs-content
             key="news"
             id="tab-news"
@@ -31,18 +31,6 @@
                                 <div>2017年09月27日15:28:29 昨天 15小时前</div>
                                 <div style="padding: 4px 0 16px 0;font-size:15px;line-height:25px;">
                                     下面的内容来自于互联网
-                                            <v-container fluid grid-list-sm style="margin:6px 0 6px 0">
-<v-layout row wrap class="editor-emoticon" style="background-color:#fff;height:auto;overflow-y:auto;">
-    <v-flex class="editor-emoticon-item" v-for="index in 99" :key="index">
-        <v-btn 
-            flat
-        >
-        <img :src="`public/face/${10000 + index}.gif`" width="36px">
-        {{ index }}
-        </v-btn>
-    </v-flex>
-</v-layout>
-        </v-container>
         内容主要是一帮大老爷们的照片，我就是随便找的，并没有什么特殊癖好，你要事喜欢，可以换成风景图片什么的，我觉得风景图片可能要好点，不过风景图片可能大大小小的，这个图片估计也会有这个问题，大大小小不容易排版，这个是我们需要改进的地方，之所以说这么多废话，就是想凑点字数出来，看看多排的排版效果，其实说的都是废话。
                                 </div>
                                 <div>

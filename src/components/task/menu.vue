@@ -4,25 +4,32 @@
         <v-toolbar dark flat class="cyan toolbar-small">
             <v-toolbar-items style="margin:0;">
                 <v-btn flat class="toolbar-right-btn">新建任务</v-btn>
-                <v-menu
-                    offset-y
-                    z-index="128"
-                >
+            </v-toolbar-items>
+            <v-spacer></v-spacer>
+            <v-toolbar-items style="margin:0;">
+                <v-menu offset-y z-index="128">
                     <v-btn 
                         flat 
                         class="toolbar-right-btn menu-btn" 
                         slot="activator"
-                        style="width:180px;"
+                        style="width:220px;"
                     >
-                        <span> {{ taskClass }} </span>
+                        <span> {{ classes[classIndex].title }} </span>
                         <v-icon dark>arrow_drop_down</v-icon>
                     </v-btn>
                     <v-list dense>
-                        <v-list-tile v-for="item in classes" :key="item" @click="">
-                            <v-list-tile-title 
-                                v-text="item" 
-                                style="color:#333;font-size:16px;"
-                            ></v-list-tile-title>
+                        <v-list-tile v-for="(item, index) in classes" :key="item" @click="changeClassIndex(index)">
+                            <v-list-tile-content>
+                                <v-list-tile-title 
+                                    v-text="item.title" 
+                                    style="color:#333;font-size:16px;"
+                                ></v-list-tile-title>
+                            </v-list-tile-content>
+                            <v-list-tile-action>
+                                <v-list-tile-action-text style="color:#d93d5e;font-size:14px;">
+                                    {{ item.count }}
+                                </v-list-tile-action-text>
+                            </v-list-tile-action>
                         </v-list-tile>
                     </v-list>
                 </v-menu>
@@ -59,15 +66,25 @@
                                 ></v-list-tile-title>
                             </v-list-tile-content>
                             <v-list-tile-action>
-                                <v-list-tile-action-text 
-                                    class="menu_title" 
-                                    style="color:#d93d5e;"
-                                >
+                                <v-list-tile-action-text style="color:#d93d5e;font-size:14px;">
                                     {{ item.deadline }}
                                 </v-list-tile-action-text>
                             </v-list-tile-action>
                         </v-list-tile>
                     </template>
+                    <v-list-tile v-if="more" @click.stop="">
+                        <v-list-tile-content>
+                            <v-list-tile-title style="color:#03a9f4;font-size:16px;font-weight:600;">
+                                点击加载更多
+                            </v-list-tile-title>
+                        </v-list-tile-content>
+                    </v-list-tile>
+                    <v-list-tile>
+                        <v-list-tile-content>
+                            <v-list-tile-title style="color:#03a9f4;font-size:16px;font-weight:600;">
+                            </v-list-tile-title>
+                        </v-list-tile-content>
+                    </v-list-tile>
                 </v-list>
             </v-flex>
         </v-layout>
@@ -80,15 +97,37 @@ export default {
     data () {
         return {
             id: '',
-            taskClass: '未完成的',
+            more: true,
+            classIndex: 0,
             classes: [
-                '未完成的',
-                '已完成的',
-                '我发出的',
-                '我执行的',
-                '抄送我的',
-                '暂停的',
-                '废弃的',
+                {
+                    title: '未完成的',
+                    count: 16,
+                },
+                {
+                    title: '已完成的',
+                    count: 0,
+                },
+                {
+                    title: '我发出的',
+                    count: 10,
+                },
+                {
+                    title: '我执行的',
+                    count: 8,
+                },
+                {
+                    title: '抄送我的',
+                    count: 2,
+                },
+                {
+                    title: '暂停的',
+                    count: 1,
+                },
+                {
+                    title: '废弃的',
+                    count: 0,
+                }
             ],
             items: [
                 {
@@ -96,14 +135,14 @@ export default {
                     name: '钱烨（软件工程师）',
                     avatar: '/public/avatar/1.jpg',
                     deadline: '1天',
-                    title: '完成任务模块页面编码',
+                    title: '昆山岱德延峰表冷器冲片',
                 },
                 {
                     id: '2',
                     name: '范琴（测试工程师）',
                     avatar: '/public/avatar/3.jpg',
                     deadline: '2天',
-                    title: '任务模块页面测试及后台数据测试',
+                    title: '昆山岱德延峰表冷器下料',
                 },
                 {
                     id: '3',
@@ -137,78 +176,109 @@ export default {
                     id: '7',
                     name: '钱烨（软件工程师）',
                     avatar: '/public/avatar/1.jpg',
-                    deadline: '19天',
-                    title: '项目线上部署',
+                    deadline: '3天',
+                    title: '济南铃木水洗箱下料',
                 },
                 {
                     id: '8',
                     name: '钱烨（软件工程师）',
                     avatar: '/public/avatar/1.jpg',
-                    deadline: '19天',
-                    title: '项目线上部署',
+                    deadline: '6天',
+                    title: '江淮汽车空调机组现场安装',
                 },
                 {
                     id: '9',
                     name: '钱烨（软件工程师）',
                     avatar: '/public/avatar/1.jpg',
-                    deadline: '19天',
-                    title: '项目线上部署',
+                    deadline: '20天',
+                    title: '沈阳棒棒娃空调机组现场安装',
                 },
                 {
                     id: '10',
                     name: '钱烨（软件工程师）',
                     avatar: '/public/avatar/1.jpg',
-                    deadline: '19天',
-                    title: '项目线上部署',
+                    deadline: '17天',
+                    title: '慈溪图书馆通风系统安装',
                 },
                 {
                     id: '11',
                     name: '钱烨（软件工程师）',
                     avatar: '/public/avatar/1.jpg',
-                    deadline: '19天',
-                    title: '项目线上部署',
+                    deadline: '10天',
+                    title: '东风汽车涂装线水洗箱报价',
                 },
                 {
-                    id: '11',
+                    id: '12',
+                    name: '钱烨（软件工程师）',
+                    avatar: '/public/avatar/1.jpg',
+                    deadline: '12天',
+                    title: '南京天加空调参观',
+                },
+                {
+                    id: '13',
                     name: '钱烨（软件工程师）',
                     avatar: '/public/avatar/1.jpg',
                     deadline: '19天',
-                    title: '项目线上部署',
+                    title: '淮安微晶电子化学滤网安装',
                 },
                 {
-                    id: '11',
+                    id: '14',
                     name: '钱烨（软件工程师）',
                     avatar: '/public/avatar/1.jpg',
-                    deadline: '19天',
-                    title: '项目线上部署',
+                    deadline: '26天',
+                    title: '慈溪图书馆水系统安装',
                 },
                 {
-                    id: '11',
+                    id: '15',
                     name: '钱烨（软件工程师）',
                     avatar: '/public/avatar/1.jpg',
-                    deadline: '19天',
-                    title: '项目线上部署',
+                    deadline: '1月',
+                    title: '全厂消防演练',
+                },
+                {
+                    id: '16',
+                    name: '钱烨（软件工程师）',
+                    avatar: '/public/avatar/1.jpg',
+                    deadline: '22天',
+                    title: '南京台积电库板采购',
+                },
+                {
+                    id: '17',
+                    name: '钱烨（软件工程师）',
+                    avatar: '/public/avatar/1.jpg',
+                    deadline: '2月',
+                    title: '慈溪图书馆空调系统调试',
+                },
+                {
+                    id: '18',
+                    name: '钱烨（软件工程师）',
+                    avatar: '/public/avatar/1.jpg',
+                    deadline: '18天',
+                    title: '南京台积电化学滤网安装',
                 },
             ]
         }
     },
     methods: {
-        select: function(event) {
-            let tag = event.currentTarget
-            let id = tag.firstChild.id
+        select(event) {
+            let tag = event.currentTarget;
+            let id = tag.firstChild.id;
             if (id == this.id) {
                 return;
             } else {
-                if (this.id != '') {
-                    let prev = document.getElementById(this.id).parentNode
+                if (this.id != "") {
+                    let prev = document.getElementById(this.id).parentNode;
                     if (prev) {
-                        prev.style.backgroundColor = "#fff"
+                        prev.style.backgroundColor = "#fff";
                     }
                 }
 
-                tag.style.backgroundColor = "#bbdefb"
-                this.id = id
+                tag.style.backgroundColor = "#bbdefb";
+                this.id = id;
             }
+        },
+        changeClassIndex(index) {
+            this.classIndex = index;
         }
     }
 }

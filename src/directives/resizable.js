@@ -6,12 +6,33 @@ function clearSelection () {
     }
 }
 
+// close menu content
+function closeMenuContent () {
+    let nodes;
+    if (document.getElementsByClassName) {
+        nodes = document.getElementsByClassName('menu__content');
+    } else if (document.querySelectorAll) {
+        nodes = document.querySelectorAll('.menu__content');
+    } else {
+        return;
+    }
+
+    if (nodes) {
+        let len = nodes.length;
+        for (let i = 0; i < len; i++) {
+            nodes[i].style.display = 'none';
+        }
+    }
+}
+
 function directive (el, binding) {
     const id = binding.value.id;
     const minWidth = binding.value.minWidth;
     const maxWidth = binding.value.maxWidth;
    
     const mousedown = function(e) {
+        closeMenuContent();
+
         const x = e.clientX;
         let tag = document.getElementById(id);
         if (!tag) return false;

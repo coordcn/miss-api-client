@@ -12,17 +12,17 @@
             <toolbar-menu></toolbar-menu>
         </v-menu>
     </v-toolbar-items>
-    <v-toolbar-title style="font-weight:600;font-size:18px;color:#fff;">Miss API</v-toolbar-title>
+    <v-toolbar-title style="font-weight:600;font-size:18px;color:#fff;">江苏通月空调有限公司</v-toolbar-title>
     <v-spacer></v-spacer>
     <v-toolbar-items style="margin:0;">
         <template v-for="(item, index) in items">
             <router-link :to="item.href">
                 <v-btn flat class="toolbar-right-btn link-btn badge-btn">
                     <v-badge color="orange">
-                    <span slot="badge" v-if="item.badge && (typeof item.badge === 'number') && (item.badge > 0)">
-                        {{ item.badge < 100 ? item.badge : 99 }}
-                    </span>
-                    <span> {{ item.title }} </span>
+                        <span slot="badge" v-if="item.count && (typeof item.count === 'number') && (item.count > 0)">
+                            {{ item.count < 100 ? item.count : 99 }}
+                        </span>
+                        <span> {{ item.title }} </span>
                     </v-badge>
                 </v-btn>
             </router-link>
@@ -50,12 +50,12 @@ export default {
             {
                 title: '任务',
                 href: '/task',
-                badge: 128
+                count: 128
             },
             {
                 title: '会议',
                 href: '/meeting',
-                badge: 2
+                count: 2
             },
             {
                 title: '日程',
